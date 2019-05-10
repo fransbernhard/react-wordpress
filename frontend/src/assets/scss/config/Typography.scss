@@ -1,0 +1,47 @@
+a {
+    text-decoration: none;
+    letter-spacing: 2px;
+    color: map-get($colors, black);
+    text-align: center;
+}
+
+p {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    line-height: 1.6rem;
+    @include respond-to(medium) {
+        font-size: 10px;
+        letter-spacing: 1px;
+        line-height: 15px;
+    }
+}
+
+h2 {
+    padding: 15px 0;
+    font-weight: lighter;
+}
+
+h3 {
+    font-size: 1rem;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    @include respond-to(medium) {
+        font-size: 11px;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+}
+
+h4 {
+    font-size: 13px;
+    color: map-get($colors, white);
+    text-align: left;
+}
+
+h5 {
+    font-size: 10px;
+    font-weight: bold;
+    padding-bottom: 4px;
+}

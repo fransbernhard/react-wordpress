@@ -1,0 +1,12 @@
+dist
+node_modules
+*.txt
+*.log
+yarn.error.log*
+yarn.lock*
+
+# WordPress
+/wordpress/wp-config.php
+
+### OSX specific
+.DS_Store

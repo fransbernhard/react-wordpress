@@ -1,0 +1,61 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+a:focus, button:focus {
+    outline:0 !important;
+}
+
+body {
+	position: relative;
+	margin: 0 auto;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    @include flexColumnCenter;
+    padding-top: 50px;
+}
+
+.wrapper {
+    max-width: $wrapper;
+}
+
+.background-img {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: url(../images/splitbakgrund.jpg) no-repeat top center scroll;
+    background-size: cover;
+}
+
+.hero {
+    @include flexCenterCenter;
+    z-index: 0;
+    min-height: 90vh;
+    width: $fullWidthVp;
+}
+
+.loaderSmall {
+    @include flexCenterCenter;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: $fullSizePercent;
+    height: $fullSizePercent;
+    z-index: 99;
+    background: map-get($colors, loaderSmallBg);
+}
+
+#loader-1 {
+    width: 150px;
+    height: 150px;
+}

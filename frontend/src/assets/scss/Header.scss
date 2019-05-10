@@ -1,0 +1,35 @@
+nav {
+    position: fixed;
+    background: map-get($colors, whiteOpacity);
+    box-shadow: 0px 4px 8px 0px map-get($colors, blackOpacity);
+    z-index: 2;
+    width: $fullWidthVp;
+
+    ul {
+        @include flexSACenter;
+        .contactWeb {
+            display: none;
+        }
+        @include respond-to(medium) {
+            justify-content: center;
+            .contactMobile {
+                display: none;
+            }
+            .contactWeb {
+                display: block;
+            }
+        }
+        li {
+            padding: 1.5rem 0rem;
+            @include respond-to(medium) {
+                padding: $l-space;
+            }
+            a {
+                font-size: 0.8rem;
+                @include respond-to(medium) {
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+}
