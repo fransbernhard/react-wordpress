@@ -8,8 +8,8 @@ var server = new WebpackDevServer(compiler, {
 	filename: config.output.filename,
 	publicPath: config.output.publicPath,
 	proxy: {
-		'/getMail': 'http://127.0.0.1:8888/magdalundberg-react/php/mailer.php',
-		'/getProducts': 'http://127.0.0.1:8888/magdalundberg-react/php/products.php'
+		'/getMail': 'http://127.0.0.1:4444/frontend/php/mailer.php',
+		'/getProducts': 'http://127.0.0.1:4444/frontend/php/products.php'
 	},
 	stats: {
 		colors: true

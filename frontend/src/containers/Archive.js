@@ -20,26 +20,35 @@ class Archive extends PureComponent {
     }
 
     componentDidMount(){
-        const myInit = {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                'Accept': 'application/json'
-            }
-        };
+        // const myInit = {
+        //     method: "GET",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         'Accept': 'application/json'
+        //     }
+        // };
+        //
+        // // fetch("./php/products.php", myInit)
+        // fetch("/getProducts", myInit)
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         this.setState({ products: data });
+        //     }).catch(function(err) {
+        //         console.log('Error fetching products: ' + err.message);
+        //     });
 
-        // fetch("./php/products.php", myInit)
-        fetch("/getProducts", myInit)
-            .then((res) => res.json())
-            .then((data) => {
-                this.setState({ products: data });
-            }).catch(function(err) {
-                console.log('Error fetching products: ' + err.message);
-            });
+        fetch('/wp-json/wp/v2/posts')
+            .then(res => res.json())
+            .then(data => this.setState({
+                products: data,
+                isLoaded: true
+            })).catch(err => console.log(err.message));
     }
 
     render() {
-        const { category, activeCategoryIndex, products } = this.state;
+        const { category, activeCategoryIndex, products, isLoaded } = this.state;
+
+        console.log(this.state);
 
         return (
             <div>
@@ -52,12 +61,14 @@ class Archive extends PureComponent {
                             activeCategoryIndex={activeCategoryIndex}
                         />
                         <br/><br/>
-                        <ProductContainer
-                            products={category.length
-                                ? products.filter(product => product.catName === category)
-                                : products.filter(product => product.catName === 'Places')
-                            }
-                        />
+                        {isLoaded &&
+                            <ProductContainer
+                                products={category.length
+                                    ? products.filter(product => product.catName === category)
+                                    : products.filter(product => product.catName === 'Places')
+                                }
+                            />
+                        }
                     </div>
                 </div>
                 <Footer/>

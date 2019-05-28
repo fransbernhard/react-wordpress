@@ -10,6 +10,7 @@ import newer from 'gulp-newer';
 import cache from 'gulp-cache';
 import imagemin from 'gulp-imagemin';
 import cleanCSS from 'gulp-clean-css';
+import browserSync from 'browser-sync';
 
 let paths = {
     style: {
@@ -62,7 +63,7 @@ const images = () => (
 // export const clean = () => del(['dist']);
 
 const watchForChanges = () => {
-    // browserSync.init({ server: { baseDir: "./app"}});
+    browserSync.init({ server: { baseDir: "./app"}});
     watch(paths.style.src + '**/*.scss', style);
     watch(paths.script.src, script);
 }
