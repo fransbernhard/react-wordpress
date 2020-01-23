@@ -37,12 +37,15 @@ class Archive extends PureComponent {
         //         console.log('Error fetching products: ' + err.message);
         //     });
 
+        console.log()
+
         fetch('/wp-json/wp/v2/posts')
             .then(res => res.json())
-            .then(data => this.setState({
-                products: data,
-                isLoaded: true
-            })).catch(err => console.log(err.message));
+            .then(myJson => console.log(myJson));
+            // .then(data => this.setState({
+            //     products: data,
+            //     isLoaded: true
+            // })).catch(err => console.log(err.message));
     }
 
     render() {

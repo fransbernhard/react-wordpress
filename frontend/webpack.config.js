@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const entry = [
-	'webpack-dev-server/client?http://localhost:4444',
+	'webpack-dev-server/client?http://localhost:8227',
 	'webpack/hot/only-dev-server',
 	'./app.js'
 ]

@@ -8,8 +8,8 @@ var server = new WebpackDevServer(compiler, {
 	filename: config.output.filename,
 	publicPath: config.output.publicPath,
 	proxy: {
-		'/getMail': 'http://127.0.0.1:4444/frontend/php/mailer.php',
-		'/getProducts': 'http://127.0.0.1:4444/frontend/php/products.php'
+		'/getMail': 'http://127.0.0.1:8227/frontend/php/mailer.php',
+		'/getProducts': 'http://127.0.0.1:8227/frontend/php/products.php'
 	},
 	stats: {
 		colors: true
@@ -19,6 +19,6 @@ var server = new WebpackDevServer(compiler, {
 	}
 });
 
-server.listen(4444, '127.0.0.1', () => {
-	console.log('Starting server on http://127.0.0.1:4444');
+server.listen(8227, '127.0.0.1', () => {
+	console.log('Starting server on http://127.0.0.1:8227');
 });
