@@ -8,6 +8,7 @@ import Product from "../components/Product";
 class Archive extends PureComponent {
     state = {
         products: [],
+        places: [],
         category: "",
         activeCategoryIndex: 3
     }
@@ -20,32 +21,19 @@ class Archive extends PureComponent {
     }
 
     componentDidMount(){
-        // const myInit = {
-        //     method: "GET",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         'Accept': 'application/json'
-        //     }
-        // };
-        //
-        // // fetch("./php/products.php", myInit)
-        // fetch("/getProducts", myInit)
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         this.setState({ products: data });
-        //     }).catch(function(err) {
-        //         console.log('Error fetching products: ' + err.message);
-        //     });
-
-        console.log()
-
-        fetch('/wp-json/wp/v2/posts')
+        fetch('http://magda.se.test:8228/wp-json/wp/v2/posts')
             .then(res => res.json())
-            .then(myJson => console.log(myJson));
-            // .then(data => this.setState({
-            //     products: data,
-            //     isLoaded: true
-            // })).catch(err => console.log(err.message));
+            .then(data => this.setState({
+                products: data,
+                isLoaded: true
+            })).catch(err => console.log(err.message));
+
+        fetch('http://magda.se.test:8228/wp-json/wp/v2/places')
+            .then(res => res.json())
+            .then(data => this.setState({
+                places: data,
+                isLoaded: true
+            })).catch(err => console.log(err.message));
     }
 
     render() {
@@ -63,7 +51,6 @@ class Archive extends PureComponent {
                             products={products}
                             activeCategoryIndex={activeCategoryIndex}
                         />
-                        <br/><br/>
                         {isLoaded &&
                             <ProductContainer
                                 products={category.length
